@@ -1,8 +1,8 @@
 H2048
 =====
-A Haskell implementation of the game 2048
+A Haskell implementation of the game 2048 + expectimax solver.
 
-Gregor Ulm
+Gregor Ulm / Bill Murphy
 2014
 
 
@@ -10,7 +10,7 @@ The original version of 2048 can be played online here:
 gabrielecirulli.github.io/2048/
 
 This program covers the game logic and IO, allowing you to
-play 2048 in the console.
+play 2048 in the console, as well as 2084-playing program.
 
 ***********************************************************
 
@@ -22,7 +22,9 @@ Files:
 	 Haskell"
 - h2048.hs: current version, with changes due to community
  	feedback
-
+- hSolve2048.hs: expectimax implementation in Haskell and
+    functions for applying it to this implementation of
+    2048
 
 Rules:
 -----
@@ -47,7 +49,8 @@ Controls:
 
 Execution:
 ----------
-- start the program by calling 'main'
+- play the game by running h2048.hs
+- run the solver by running hSolve2048.hs
 
 
 Notes:
@@ -60,16 +63,16 @@ Notes:
 Change Log:
 ===========
 
-2014-06-15
-----------
+2014-06-15 (Gregor Ulm)
+-----------------------
 Initial release; game fully functional, but might require
 pushing ENTER after a move was entered, depending on your
 system configuration. I noticed that this was only an issue
 in OS X, but not in Linux.
 
-2014-06-16
-----------
-Dan Rosén (https://github.com/danr) sent a pull request, 
+2014-06-16 (Gregor Ulm)
+-----------------------
+Dan Rosén (https://github.com/danr) sent a pull request,
 containing several changes and additions. The following is a
 direct consequence of his submission:
 - disabled input buffering
@@ -77,11 +80,16 @@ direct consequence of his submission:
 - printf for printing the grid
 - separate function for randomly choosing an element of a list
 
-2014-06-17
-----------
+2014-06-17 (Gregor Ulm)
+-----------------------
 Github user qzchenwl (https://github.com/qzchenwl) submitted a
 patch that allows eta-reduction for the function 'move'.
 
-2014-06-18
-----------
+2014-06-18 (Gregor Ulm)
+-----------------------
 The starting position was randomized.
+
+2014-07-19 (Bill Murphy)
+------------------------
+The hSolve2048.hs file was added, and h2048.hs was converted
+into a module so that its functions could be exported.

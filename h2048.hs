@@ -13,6 +13,8 @@ on this program.
 
 -}
 
+module H2048 where
+
 import Prelude hiding (Left, Right)
 import Data.Char (toLower)
 import Data.List
@@ -79,7 +81,7 @@ captureMove = do
 
 check2048 :: Grid -> Bool
 check2048 grid = [] /= filter (== 2048) (concat grid)
-                
+
 addTile :: Grid -> IO Grid
 addTile grid = do
     let candidates = getZeroes grid
